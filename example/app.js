@@ -1,8 +1,8 @@
 var http       = require('http'),
     port       = process.env.PORT || 3000,
-    request    = require('request'),
+    request    = require('./node_modules/node-quickbooks/node_modules/request'),
     qs         = require('querystring'),
-    util       = require('util'),
+    util       = require('./node_modules/node-quickbooks/node_modules/util'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     session    = require('express-session'),
@@ -25,8 +25,8 @@ app.listen(app.get('port'), function() {
 
 // INSERT YOUR CONSUMER_KEY AND CONSUMER_SECRET HERE
 
-var consumerKey    = '',
-    consumerSecret = ''
+var consumerKey    = 'qyprdHEA5JFpn0Cl0cOZF1ES76SBZj',
+    consumerSecret = 'aCX3trBtfF7dnRlpqLl07fXQdJnRpp1hgjLjtHqz';
 
 app.get('/',function(req,res){
   res.redirect('/start');
@@ -80,10 +80,13 @@ app.get('/callback', function(req, res) {
                          true); // turn debugging on
 
     // test out account access
-    qbo.findAccounts(function(_, accounts) {
+    /*qbo.findAccounts(function(_, accounts) {
       accounts.QueryResponse.Account.forEach(function(account) {
         console.log(account.Name)
       })
+    })*/
+    qbo.reportBalanceSheet(function(_, balanceSheet) {
+      console.log(balanceSheet)
     })
   })
   res.send('<!DOCTYPE html><html lang="en"><head></head><body><script>window.opener.location.reload(); window.close();</script></body></html>')
