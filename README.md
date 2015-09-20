@@ -1,1 +1,3 @@
-#Financial Analysis based on Node-Quickbooks
+
+#Financial Analysis based on Node-Quickbooks for Hack the North
+
