@@ -49,7 +49,9 @@ app.get('/requestToken', function(req, res) {
   request.post(postBody, function (e, r, data) {
     var requestToken = qs.parse(data)
     req.session.oauth_token_secret = requestToken.oauth_token_secret
-    console.log(requestToken)
+    //
+    //
+    //console.log(requestToken)
     res.redirect(QuickBooks.APP_CENTER_URL + requestToken.oauth_token)
   })
 })
@@ -68,8 +70,8 @@ app.get('/callback', function(req, res) {
   }
   request.post(postBody, function (e, r, data) {
     var accessToken = qs.parse(data)
-    console.log(accessToken)
-    console.log(postBody.oauth.realmId)
+    //console.log(accessToken)
+    //console.log(postBody.oauth.realmId)
 
     // save the access token somewhere on behalf of the logged in user
     qbo = new QuickBooks(consumerKey,
@@ -80,10 +82,18 @@ app.get('/callback', function(req, res) {
                          true, // use the Sandbox
                          true); // turn debugging on
     
+    function beautify(JSONobj) {
+      var beautifiedResult = JSON.stringify(JSONobj);
+      console.log(beautifiedResult);
+    } 
     // grab balance sheet
     qbo.reportBalanceSheet(function(_, balanceSheet) {
-      console.log(balanceSheet)
+      console.log(JSON.stringify(balanceSheet));
     })
+    // grab profit and loss statement
+    /*qbo.reportProfitAndLoss(function(profitAndLossSheet) {
+      console.log(profitAndLossSheet);
+    })*/
   })
   res.send('<!DOCTYPE html><html lang="en"><head></head><body><script>window.opener.location.reload(); window.close();</script></body></html>');
   /*if (balancesheet) {

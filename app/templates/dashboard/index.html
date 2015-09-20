@@ -21,7 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Material Design Lite</title>
+    <title>Dashboard</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -150,7 +150,43 @@
           </g>
         </defs>
       </svg>
-      <a href="https://github.com/google/material-design-lite/blob/master/templates/dashboard/" target="_blank" id="view-source" style="height:12%;background-color=transparent;"><img src="images/new analysis.png"></img></a>
+      <img id="loader" src="./ajax-loader.gif"></img>
+      <button id="view-source" style="height:12%;background-color=transparent;"><img src="./images/new analysis.png"></img></button>
+    <script src="../../../../bower_components/jquery/dist/jquery.js"></script>
     <script src="../../material.min.js"></script>
+    <script src="../../analysis-engine.js"></script>
+    <script src="../../recommendation-engine.js"></script>
+    <script>
+      var ref = new Firebase("https://intense-inferno-366.firebaseio.com");
+      var AR = new Firebase("https://intense-inferno-366.firebaseio.com/AR").key();
+      var cash = new Firebase("https://intense-inferno-366.firebaseio.com/cash").key();
+      var currDebt = new Firebase("https://intense-inferno-366.firebaseio.com/currDebt").key();
+      var profit = new Firebase("https://intense-inferno-366.firebaseio.com/profit").key();
+      var revenue = new Firebase("https://intense-inferno-366.firebaseio.com/revenue").key();
+      var assets = new Firebase("https://intense-inferno-366.firebaseio.com/total-assets").key();
+      var debt = new Firebase("https://intense-inferno-366.firebaseio.com/total-debt").key();
+      var equity = new Firebase("https://intense-inferno-366.firebaseio.com/total-equity").key();
+      ref.authWithCustomToken("tQAFVQYeICmvtVXHoQRBP9iuuoIp6mOiKgpnDehW", function(error, authData) {
+        if (error) {
+          console.log("Authentication Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+       $(document).ready(function{
+          $("#view-source").click(function() {
+            setInterval(function(){ 
+              var count = 0;
+              count++;
+              if (count < 6 ) {
+                $("#loader").show();
+              }
+              else {
+                $("#loader").hide();
+              }
+            }, 1000);
+          });
+        }); 
+    </script>
   </body>
 </html>
