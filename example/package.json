@@ -1,7 +1,7 @@
 {
-  "name": "node-quickbooks-example-app",
+  "name": "financial analysis AI",
   "version": "0.0.1",
-  "description": "Example Express application for Intuit's node.js client for QuickBooks V3 API.",
+  "description": "An Express application using Intuit's node.js client for QuickBooks V3 API to analyse the user's business data and provide recommendations",
   "main": "app.js",
   "keywords": [
     "Intuit",
@@ -19,4 +19,4 @@
     "node-quickbooks": "1.0.19",
     "request" : "2.62.0"
   }
-}     
+} 

@@ -8,7 +8,8 @@ var http       = require('http'),
     session    = require('express-session'),
     express    = require('express'),
     app        = express(),
-    QuickBooks = require('../index')
+    QuickBooks = require('../index'),
+    analysis   = require('./analysis-engine.js');
 
 
 // Generic Express config
@@ -78,17 +79,16 @@ app.get('/callback', function(req, res) {
                          postBody.oauth.realmId,
                          true, // use the Sandbox
                          true); // turn debugging on
-
-    // test out account access
-    /*qbo.findAccounts(function(_, accounts) {
-      accounts.QueryResponse.Account.forEach(function(account) {
-        console.log(account.Name)
-      })
-    })*/
+    
+    // grab balance sheet
     qbo.reportBalanceSheet(function(_, balanceSheet) {
       console.log(balanceSheet)
     })
   })
-  res.send('<!DOCTYPE html><html lang="en"><head></head><body><script>window.opener.location.reload(); window.close();</script></body></html>')
+  res.send('<!DOCTYPE html><html lang="en"><head></head><body><script>window.opener.location.reload(); window.close();</script></body></html>');
+  /*if (balancesheet) {
+    console.log("redirecting to web app");
+    window.location.href="./app/index.html";
+  } */
 })
 

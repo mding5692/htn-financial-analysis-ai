@@ -1,4 +1,4 @@
 node_modules
-build/generated.txt
-.idea
-**/junk**
+dist
+.tmp
+bower_components

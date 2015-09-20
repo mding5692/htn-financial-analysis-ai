@@ -1,6 +1,6 @@
 {
   "firebase": "intense-inferno-366",
-  "public": ".",
+  "public": "./app",
   "ignore": [
     "firebase.json",
     "**/.*",
