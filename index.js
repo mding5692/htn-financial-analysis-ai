@@ -6,12 +6,12 @@
  * @copyright 2014 Michael Cohen
  */
 
-var request = require('request'),
-    uuid    = require('node-uuid'),
-    debug   = require('request-debug'),
-    util    = require('util'),
-    moment  = require('moment'),
-    _       = require('underscore'),
+var request = require('./example/node_modules/node-quickbooks/node_modules/request'),
+    uuid    = require('./example/node_modules/node-quickbooks/node_modules/node-uuid'),
+    debug   = require('./example/node_modules/node-quickbooks/node_modules/request-debug'),
+    util    = require('./example/node_modules/node-quickbooks/node_modules/util'),
+    moment  = require('./example/node_modules/node-quickbooks/node_modules/moment'),
+    _       = require('./example/node_modules/node-quickbooks/node_modules/underscore'),
     version = require('./package.json').version
 
 module.exports = QuickBooks

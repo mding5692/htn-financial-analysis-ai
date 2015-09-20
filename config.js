@@ -1,7 +1,7 @@
 module.exports = {
-  consumerKey:     '',
-  consumerSecret:  '',
-  token:           '',
+  consumerKey:     'qyprdHEA5JFpn0Cl0cOZF1ES76SBZj',
+  consumerSecret:  'aCX3trBtfF7dnRlpqLl07fXQdJnRpp1hgjLjtHqz',
+  token:           '8e407d57b5e93b4b8ebacfebe0da3a9d08e8',
   tokenSecret:     '',
   realmId:         '',
   useSandbox:      true,

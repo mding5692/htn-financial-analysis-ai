@@ -1,1 +1,3 @@
-Built on Node Quickbooks for Hack the North
+
+#Financial Analysis based on Node-Quickbooks for Hack the North
+
